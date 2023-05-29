@@ -1,0 +1,56 @@
+package com.julio.bookstore.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Category {
+
+    private Long id;
+    private String name;
+    private String desc;
+
+    private List<Book> books = new ArrayList<>();
+
+    public Category() {
+
+    }
+
+    public Category(Long id, String name, String desc) {
+
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitle() {
+        return this.name;
+    }
+
+    public void setTitle(String name) {
+        this.name = name;
+    }
+
+    public String getDes() {
+        return this.desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public List<Book> getLisBook() {
+        return this.books;
+    }
+
+    public void setListBook(List<Book> books) {
+        this.books = books;
+    }
+}
