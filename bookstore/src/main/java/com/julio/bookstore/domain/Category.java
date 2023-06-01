@@ -58,11 +58,11 @@ public class Category {
         this.desc = desc;
     }
 
-    public List<Book> getLisBook() {
+    public List<Book> getBook() {
         return this.books;
     }
 
-    public void setListBook(List<Book> books) {
+    public void setBook(List<Book> books) {
         this.books = books;
     }
 }
