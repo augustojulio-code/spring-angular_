@@ -18,7 +18,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private String desc;
+    private String description;
 
     @OneToMany(mappedBy = "category")
     private List<Book> books = new ArrayList<>();
@@ -27,11 +27,11 @@ public class Category {
 
     }
 
-    public Category(Long id, String name, String desc) {
+    public Category(Long id, String name, String description) {
 
         this.id = id;
         this.name = name;
-        this.desc = desc;
+        this.description = description;
     }
 
     public Long getId() {
@@ -51,11 +51,11 @@ public class Category {
     }
 
     public String getDes() {
-        return this.desc;
+        return this.description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setDesc(String description) {
+        this.description = description;
     }
 
     public List<Book> getBook() {
