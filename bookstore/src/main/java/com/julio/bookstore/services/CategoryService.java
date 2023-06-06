@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.julio.bookstore.domain.Category;
 import com.julio.bookstore.repositories.CategoryRespository;
+import com.julio.bookstore.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class CategoryService {
@@ -24,7 +25,8 @@ public class CategoryService {
 
         Optional<Category> obj = respository.findById(id);
 
-        return obj.get();
+        return obj.orElseThrow(() -> new ObjectNotFoundException(
+                "Objeto não encontrado! id: " + id + " Tipo: " + Category.class.getName()));
     }
 
 }
