@@ -42,11 +42,11 @@ public class Category {
         this.id = id;
     }
 
-    public String getTitle() {
+    public String getName() {
         return this.name;
     }
 
-    public void setTitle(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
