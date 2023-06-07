@@ -13,7 +13,7 @@ public class CategoryDTO {
     public CategoryDTO(Category obj) {
         this.id = obj.getId();
         this.name = obj.getName();
-        this.description = obj.getDes();
+        this.description = obj.getDescription();
     }
 
     public Long getId() {
