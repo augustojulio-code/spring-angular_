@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.julio.bookstore.domain.Category;
+import com.julio.bookstore.dtos.CategoryDTO;
 import com.julio.bookstore.repositories.CategoryRespository;
 import com.julio.bookstore.services.exceptions.ObjectNotFoundException;
 
@@ -32,6 +33,15 @@ public class CategoryService {
     public Category insert(Category obj) {
         obj.setId(null);
         return respository.save(obj);
+    }
+
+    public Category insert(Long id, CategoryDTO objDto) {
+        Category obj = findById(id);
+        obj.setName(obj.getName());
+        obj.setDescription(objDto.getDescription());
+
+        return respository.save(obj);
+
     }
 
 }
