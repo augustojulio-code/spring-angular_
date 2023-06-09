@@ -1,16 +1,16 @@
 package com.julio.bookstore.resources.exceptions;
 
-public class StandadError {
+public class StandardError {
 
     private Long timestamp;
     private Integer status;
     private String error;
 
-    public StandadError() {
+    public StandardError() {
         super();
     }
 
-    public StandadError(Long timestamp, Integer status, String error) {
+    public StandardError(Long timestamp, Integer status, String error) {
         super();
         this.timestamp = timestamp;
         this.status = status;
