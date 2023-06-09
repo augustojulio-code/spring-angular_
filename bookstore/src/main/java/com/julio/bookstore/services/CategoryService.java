@@ -15,16 +15,16 @@ import com.julio.bookstore.services.exceptions.ObjectNotFoundException;
 public class CategoryService {
 
     @Autowired
-    private CategoryRespository respository;
+    private CategoryRespository repository;
 
     public List<Category> findAll() {
 
-        return respository.findAll();
+        return repository.findAll();
     }
 
     public Category findById(Long id) {
 
-        Optional<Category> obj = respository.findById(id);
+        Optional<Category> obj = repository.findById(id);
 
         return obj.orElseThrow(() -> new ObjectNotFoundException(
                 "Objeto não encontrado! id: " + id + " Tipo: " + Category.class.getName()));
@@ -32,7 +32,7 @@ public class CategoryService {
 
     public Category insert(Category obj) {
         obj.setId(null);
-        return respository.save(obj);
+        return repository.save(obj);
     }
 
     public Category insert(Long id, CategoryDTO objDto) {
@@ -40,8 +40,13 @@ public class CategoryService {
         obj.setName(obj.getName());
         obj.setDescription(objDto.getDescription());
 
-        return respository.save(obj);
+        return repository.save(obj);
 
+    }
+
+    public void delete(Long id) {
+        findById(id);
+        repository.deleteById(id);
     }
 
 }
