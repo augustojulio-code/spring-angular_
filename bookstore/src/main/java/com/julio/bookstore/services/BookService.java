@@ -32,4 +32,18 @@ public class BookService {
         return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado: " + id));
 
     }
+
+    public Book update(Long id, Book obj) {
+        Book newObj = findById(id);
+        updateData(newObj, obj);
+
+        return repository.save(newObj);
+    }
+
+    private void updateData(Book newObj, Book obj) {
+        newObj.setTitle(obj.getTitle());
+        newObj.setAuthor(obj.getAuthor());
+        newObj.setText(obj.getText());
+
+    }
 }
