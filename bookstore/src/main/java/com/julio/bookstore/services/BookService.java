@@ -60,4 +60,9 @@ public class BookService {
 
         return repository.findAll();
     }
+
+    public void delete(Long id) {
+        Book obj = findById(id);
+        repository.delete(obj);
+    }
 }
