@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.julio.bookstore.domain.Book;
+import com.julio.bookstore.domain.Category;
 import com.julio.bookstore.repositories.BookRepository;
 import com.julio.bookstore.services.exceptions.ObjectNotFoundException;
 
@@ -45,5 +46,18 @@ public class BookService {
         newObj.setAuthor(obj.getAuthor());
         newObj.setText(obj.getText());
 
+    }
+
+    public Book create(Long id_cat, Book obj) {
+        obj.setId(null);
+        Category cat = categoryService.findById(id_cat);
+        obj.setCategory(cat);
+
+        return repository.save(obj);
+    }
+
+    public List<Book> findAll() {
+
+        return repository.findAll();
     }
 }
